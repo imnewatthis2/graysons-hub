@@ -11,13 +11,14 @@
             padding: 0;
         }
         body {
-            background-color: #0a0a0a;
+            background-color: #0c0c0c;
             color: #ffffff;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             min-height: 100vh;
             overflow-x: hidden;
+            padding-bottom: 60px;
         }
-        /* Full Screen Splash Screen Layout */
+        /* Splash Intro Screen Layout */
         #splash {
             position: fixed;
             top: 0;
@@ -38,13 +39,16 @@
         }
         /* Top Navigation Header Bar */
         header {
-            background: #111111;
+            background: #121212;
             padding: 15px 30px;
             display: flex;
             justify-content: space-between;
             align-items: center;
             border-bottom: 2px solid #ff2222;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.6);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
         }
         .logo {
             font-family: "Brush Script MT", cursive;
@@ -69,37 +73,61 @@
             margin: 30px auto;
             padding: 0 20px;
         }
+        /* Search Bar Styles */
+        .search-container {
+            margin: 20px 0 40px 0;
+            display: flex;
+            gap: 15px;
+        }
+        .search-bar {
+            flex: 1;
+            padding: 15px 20px;
+            background: #161616;
+            border: 2px solid #252525;
+            border-radius: 12px;
+            color: #fff;
+            font-size: 16px;
+            font-weight: bold;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+        .search-bar:focus {
+            border-color: #ff2222;
+        }
         h2 {
-            font-size: 24px;
-            margin-bottom: 20px;
+            font-size: 22px;
+            margin: 40px 0 15px 0;
             color: #ff3333;
             border-left: 4px solid #ff3333;
             padding-left: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
         /* Flexible Grid for Cards */
         .grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
             gap: 20px;
-            margin-bottom: 40px;
+            margin-bottom: 20px;
         }
         .card {
-            background: #151515;
-            border: 1px solid #252525;
+            background: #161616;
+            border: 1px solid #262626;
             border-radius: 12px;
-            padding: 20px;
+            padding: 22px 15px;
             text-align: center;
             cursor: pointer;
-            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+            transition: all 0.25s cubic-bezier(0.25, 0.8, 0.25, 1);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.4);
         }
         .card:hover {
             transform: translateY(-5px);
             border-color: #ff2222;
-            box-shadow: 0 10px 20px rgba(255, 34, 34, 0.15);
+            box-shadow: 0 10px 25px rgba(255, 34, 34, 0.2);
+            background: #1a1a1a;
         }
         .card .icon {
-            font-size: 40px;
+            font-size: 42px;
             margin-bottom: 12px;
         }
         .card .title {
@@ -111,6 +139,7 @@
             font-size: 12px;
             color: #888;
             margin-top: 6px;
+            line-height: 1.4;
         }
         /* Custom game embed screen overlay */
         #game-container {
@@ -132,7 +161,7 @@
             position: fixed;
             top: 15px;
             left: 15px;
-            background: rgba(255, 34, 34, 0.85);
+            background: rgba(255, 34, 34, 0.9);
             color: white;
             border: none;
             padding: 10px 18px;
@@ -140,135 +169,96 @@
             cursor: pointer;
             font-weight: bold;
             z-index: 89999;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.5);
         }
         .close-game:hover { background: #ff0000; }
     </style>
 </head>
 <body>
 
-    <!-- 1. The Red/Black Splash Intro Screen -->
+    <!-- 1. The Splash Intro Screen -->
     <div id="splash">graysons hub</div>
 
-    <!-- 2. Main Site UI -->
+    <!-- 2. Main Site UI Header -->
     <header>
         <div class="logo">graysons hub</div>
         <button class="inspect-btn" id="inspectBtn">🔍 Toggle Inspect Element</button>
     </header>
 
     <div class="container">
-        <!-- Arcade Games Grid -->
-        <h2>🎮 Arcade Zone (Full Screen HTML5 Games)</h2>
+        
+        <!-- Live Dashboard Filter & Search System -->
+        <div class="search-container">
+            <input type="text" class="search-bar" id="searchBar" placeholder="🔍 Search through games instantly..." onkeyup="filterHub()">
+        </div>
+
+        <!-- NEW: Massive Cloud Repository Directories (Contains 500+ Games) -->
+        <h2>⚡ Mega Cloud Repositories (500+ Cloud Games)</h2>
+        <div class="grid">
+            <div class="card" onclick="loadGame('https://radon.games')">
+                <div class="icon">🌀</div>
+                <div class="title">Radon Games Proxy</div>
+                <div class="desc">Bypassed cloud launcher housing over 250 premium unblocked games.</div>
+            </div>
+            <div class="card" onclick="loadGame('https://github.io')">
+                <div class="icon">💾</div>
+                <div class="title">3kh0 Retro Vault</div>
+                <div class="desc">Massive index of classic unblocked games, loaders, and utility tools.</div>
+            </div>
+            <div class="card" onclick="loadGame('https://github.io')">
+                <div class="icon">🔮</div>
+                <div class="title">UBG365 Arcade Node</div>
+                <div class="desc">Direct unblocked server cluster hosting over 300 network games.</div>
+            </div>
+        </div>
+
+        <h2>🏈 Gridiron & Court Sports</h2>
         <div class="grid">
             <div class="card" onclick="loadGame('https://googleusercontent.com')">
                 <div class="icon">🏈</div>
                 <div class="title">Retro Bowl</div>
-                <div class="desc">Manage and lead your team to victory.</div>
+                <div class="desc">Manage your franchise and dominate the championship game.</div>
             </div>
+            <div class="card" onclick="loadGame('https://googleusercontent.com')">
+                <div class="icon">🎓</div>
+                <div class="title">Retro Bowl College</div>
+                <div class="desc">Draft and guide university squads to absolute victory.</div>
+            </div>
+            <div class="card" onclick="loadGame('https://googleusercontent.com')">
+                <div class="icon">🏀</div>
+                <div class="title">Basketball Stars</div>
+                <div class="desc">Fast-paced 1v1 shooting and blocking showdowns.</div>
+            </div>
+            <div class="card" onclick="loadGame('https://googleusercontent.com')">
+                <div class="icon">🚙</div>
+                <div class="title">Drive Mad</div>
+                <div class="desc">Balance extreme vehicle engines across obstacle tracks.</div>
+            </div>
+        </div>
+
+        <h2>🏎️ Speed, Tracks & Stunts</h2>
+        <div class="grid">
             <div class="card" onclick="loadGame('https://github.io')">
-                <div class="icon">🏎️</div>
+                <div class="icon">🏁</div>
                 <div class="title">Drift Hunters</div>
-                <div class="desc">3D racing car drifting simulator.</div>
-            </div>
-            <div class="card" onclick="loadGame('https://1v1.lol')">
-                <div class="icon">🧱</div>
-                <div class="title">1v1.lol</div>
-                <div class="desc">Third-person battle royale shooter.</div>
-            </div>
-            <div class="card" onclick="loadGame('https://mit.edu')">
-                <div class="icon">🐔</div>
-                <div class="title">Crossy Road</div>
-                <div class="desc">Navigate traffic without getting smashed.</div>
+                <div class="desc">Open sandbox tracking engine for heavy drifting tuning.</div>
             </div>
             <div class="card" onclick="loadGame('https://github.io')">
                 <div class="icon">🟢</div>
                 <div class="title">Slope</div>
-                <div class="desc">High-speed neon ball physics runner.</div>
+                <div class="desc">Infinite velocity gravity-rolling down narrow neon vectors.</div>
+            </div>
+            <div class="card" onclick="loadGame('https://googleusercontent.com')">
+                <div class="icon">⚡</div>
+                <div class="title">Tunnel Rush</div>
+                <div class="desc">Rapid navigation through kaleidoscope structural blockades.</div>
+            </div>
+            <div class="card" onclick="loadGame('https://googleusercontent.com')">
+                <div class="icon">🏍️</div>
+                <div class="title">Moto X3M</div>
+                <div class="desc">Perform flawless physics flips over fiery explosive spikes.</div>
             </div>
         </div>
 
-        <!-- System Utilities Grid -->
-        <h2>🌐 Network Proxies & Bypass Nodes</h2>
+        <h2>⚔️ Battle Arena & Combat</h2>
         <div class="grid">
-            <div class="card" onclick="launchProxy('aHR0cHM6Ly9zMy5hbWF6b25hd3MuY29tL2NhdDR6L2luZGV4Lmh0bWw=')">
-                <div class="icon">🚀</div>
-                <div class="title">Cat4z Proxy</div>
-                <div class="desc">Unblocked primary secure gateway.</div>
-            </div>
-            <div class="card" onclick="launchProxy('aHR0cHM6Ly9zMy5hbWF6b25hd3MuY29tL3NjaG9sYXJub29rL2luZGV4Lmh0bWw=')">
-                <div class="icon">📚</div>
-                <div class="title">Scholarnook</div>
-                <div class="desc">Educational bypass workspace mirror.</div>
-            </div>
-        </div>
-    </div>
-
-    <!-- 3. Fullscreen Iframe Game Overlay Player -->
-    <div id="game-container">
-        <button class="close-game" onclick="closeGame()">⬅ Exit Game</button>
-        <iframe id="game-frame" src=""></iframe>
-    </div>
-
-    <script>
-        // Splash screen fadeout routine
-        window.addEventListener('DOMContentLoaded', () => {
-            const splash = document.getElementById('splash');
-            setTimeout(() => {
-                splash.style.opacity = '0';
-                setTimeout(() => splash.remove(), 600);
-            }, 1200);
-        });
-
-        // Full screen arcade loader logic
-        function loadGame(url) {
-            const player = document.getElementById('game-container');
-            const frame = document.getElementById('game-frame');
-            frame.src = url;
-            player.style.display = 'block';
-        }
-
-        function closeGame() {
-            const player = document.getElementById('game-container');
-            const frame = document.getElementById('game-frame');
-            player.style.display = 'none';
-            frame.src = '';
-        }
-
-        // Base64 network proxy launcher
-        function launchProxy(encodedUrl) {
-            window.open(atob(encodedUrl), '_blank');
-        }
-
-        // Live DOM Inspect Element Feature
-        const b = document.getElementById('inspectBtn');
-        let st = null;
-        
-        b.onclick = function() {
-            if (st) {
-                st.remove();
-                st = null;
-                document.removeEventListener("click", oC, true);
-                b.style.background = "#222";
-            } else {
-                st = document.createElement("style");
-                st.innerHTML = "*:hover{outline:2px dashed #ff2222!important;cursor:crosshair!important;}";
-                document.head.appendChild(st);
-                document.addEventListener("click", oC, true);
-                b.style.background = "#ff2222";
-            }
-        };
-
-        function oC(e) {
-            e.preventDefault();
-            e.stopPropagation();
-            e.target.setAttribute("contenteditable", "true");
-            e.target.focus();
-            if (st) {
-                st.remove();
-                st = null;
-                document.removeEventListener("click", oC, true);
-                b.style.background = "#222";
-            }
-        }
-    </script>
-</body>
-</html>
