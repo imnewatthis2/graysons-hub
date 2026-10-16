@@ -18,30 +18,6 @@
             overflow-x: hidden;
             padding-bottom: 60px;
         }
-        /* FIXED SPLASH: Automatically vanishes from your finger clicks after 1 second */
-        #splash {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            background: #000;
-            color: #ff2222;
-            z-index: 99999;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-family: "Brush Script MT", cursive;
-            font-size: 64px;
-            font-weight: bold;
-            text-shadow: 0 0 20px rgba(255, 34, 34, 0.6);
-            pointer-events: none; /* Allows your finger to tap straight through it */
-            animation: fadeOut 0.4s ease forwards;
-            animation-delay: 1s;
-        }
-        @keyframes fadeOut {
-            to { opacity: 0; visibility: hidden; display: none; }
-        }
         /* Top Navigation Header Bar */
         header {
             background: #121212;
@@ -181,10 +157,6 @@
 </head>
 <body>
 
-    <!-- 1. The Splash Intro Screen -->
-    <div id="splash">graysons hub</div>
-
-    <!-- 2. Main Site UI Header -->
     <header>
         <div class="logo">graysons hub</div>
         <button class="inspect-btn" id="inspectBtn">🔍 Toggle Inspect Element</button>
@@ -192,73 +164,99 @@
 
     <div class="container">
         
-        <!-- Live Dashboard Filter & Search System -->
         <div class="search-container">
             <input type="text" class="search-bar" id="searchBar" placeholder="🔍 Search through games instantly..." onkeyup="filterHub()">
         </div>
 
-        <!-- Mega Cloud Repositories -->
-        <h2>⚡ Mega Cloud Repositories (500+ Cloud Games)</h2>
-        <div class="grid">
-            <div class="card" onclick="loadGame('https://radon.games')">
-                <div class="icon">🌀</div>
-                <div class="title">Radon Games Proxy</div>
-                <div class="desc">Bypassed cloud launcher housing over 250 premium unblocked games.</div>
-            </div>
-            <div class="card" onclick="loadGame('https://github.io')">
-                <div class="icon">💾</div>
-                <div class="title">3kh0 Retro Vault</div>
-                <div class="desc">Massive index of classic unblocked games, loaders, and utility tools.</div>
-            </div>
-            <div class="card" onclick="loadGame('https://github.io')">
-                <div class="icon">🔮</div>
-                <div class="title">UBG365 Arcade Node</div>
-                <div class="desc">Direct unblocked server cluster hosting over 300 network games.</div>
-            </div>
-        </div>
-
-        <!-- Sports Section -->
-        <h2>🏈 Gridiron & Court Sports</h2>
+        <!-- NEW: Google Classroom & Sites Mirrored Games (Completely Unblockable) -->
+        <h2>🔥 Unblockable Arcade (Google Servers)</h2>
         <div class="grid">
             <div class="card" onclick="loadGame('https://googleusercontent.com')">
                 <div class="icon">🏈</div>
                 <div class="title">Retro Bowl</div>
-                <div class="desc">Manage your franchise and dominate the championship game.</div>
+                <div class="desc">Hosted on Google drive pathways to beat school blocks.</div>
             </div>
             <div class="card" onclick="loadGame('https://googleusercontent.com')">
                 <div class="icon">🎓</div>
                 <div class="title">Retro Bowl College</div>
-                <div class="desc">Draft and guide university squads to absolute victory.</div>
+                <div class="desc">Manage campus players using secure school nodes.</div>
             </div>
             <div class="card" onclick="loadGame('https://googleusercontent.com')">
                 <div class="icon">🏀</div>
                 <div class="title">Basketball Stars</div>
-                <div class="desc">Fast-paced 1v1 shooting and blocking showdowns.</div>
+                <div class="desc">1v1 sports action running on bypass servers.</div>
             </div>
             <div class="card" onclick="loadGame('https://googleusercontent.com')">
                 <div class="icon">🚙</div>
                 <div class="title">Drive Mad</div>
-                <div class="desc">Balance extreme vehicle engines across obstacle tracks.</div>
-            </div>
-        </div>
-
-        <!-- Racing Section -->
-        <h2>🏎️ Speed, Tracks & Stunts</h2>
-        <div class="grid">
-            <div class="card" onclick="loadGame('https://github.io')">
-                <div class="icon">🏁</div>
-                <div class="title">Drift Hunters</div>
-                <div class="desc">Open sandbox tracking engine for heavy drifting tuning.</div>
-            </div>
-            <div class="card" onclick="loadGame('https://github.io')">
-                <div class="icon">🟢</div>
-                <div class="title">Slope</div>
-                <div class="desc">Infinite velocity gravity-rolling down narrow neon vectors.</div>
-            </div>
-            <div class="card" onclick="loadGame('https://googleusercontent.com')">
-                <div class="icon">⚡</div>
-                <div class="title">Tunnel Rush</div>
-                <div class="desc">Rapid navigation through kaleidoscope structural blockades.</div>
+                <div class="desc">Extreme platform driving powered by open source networks.</div>
             </div>
             <div class="card" onclick="loadGame('https://googleusercontent.com')">
                 <div class="icon">🏍️</div>
+                <div class="title">Moto X3M Original</div>
+                <div class="desc">Bike stunts that run straight through school filters.</div>
+            </div>
+            <div class="card" onclick="loadGame('https://googleusercontent.com')">
+                <div class="icon">🧩</div>
+                <div class="title">Tetris Premium</div>
+                <div class="desc">Classic arcade puzzle block layout mirror.</div>
+            </div>
+            <div class="card" onclick="loadGame('https://googleusercontent.com')">
+                <div class="icon">🐍</div>
+                <div class="title">Google Snake Plus</div>
+                <div class="desc">The legendary offline retro snake player.</div>
+            </div>
+        </div>
+
+        <h2>🌐 Network Bypass Proxies</h2>
+        <div class="grid">
+            <div class="card" onclick="launchProxy('aHR0cHM6Ly9zMy5hbWF6b25hd3MuY29tL2NhdDR6L2luZGV4Lmh0bWw=')">
+                <div class="icon">🚀</div>
+                <div class="title">Cat4z Proxy</div>
+                <div class="desc">Launches a completely free unblocked proxy browser window.</div>
+            </div>
+            <div class="card" onclick="launchProxy('aHR0cHM6Ly9zMy5hbWF6b25hd3MuY29tL3NjaG9sYXJub29rL2luZGV4Lmh0bWw=')">
+                <div class="icon">📚</div>
+                <div class="title">Scholarnook</div>
+                <div class="desc">Disguised educational bypass proxy node.</div>
+            </div>
+        </div>
+    </div>
+
+    <div id="game-container">
+        <button class="close-game" onclick="closeGame()">⬅ Exit Game</button>
+        <iframe id="game-frame" src=""></iframe>
+    </div>
+
+    <script>
+        function filterHub() {
+            let input = document.getElementById('searchBar').value.toLowerCase();
+            let cards = document.getElementsByClassName('card');
+            
+            for (let i = 0; i < cards.length; i++) {
+                let titleElement = cards[i].querySelector('.title');
+                let descElement = cards[i].querySelector('.desc');
+                
+                let title = titleElement ? titleElement.textContent.toLowerCase() : "";
+                let desc = descElement ? descElement.textContent.toLowerCase() : "";
+                
+                if (title.includes(input) || desc.includes(input)) {
+                    cards[i].style.display = "";
+                } else {
+                    cards[i].style.display = "none";
+                }
+            }
+        }
+
+        function loadGame(url) {
+            const player = document.getElementById('game-container');
+            const frame = document.getElementById('game-frame');
+            frame.src = url;
+            player.style.display = 'block';
+        }
+
+        function closeGame() {
+            const player = document.getElementById('game-container');
+            const frame = document.getElementById('game-frame');
+            player.style.display = 'none';
+            frame.src = '';
