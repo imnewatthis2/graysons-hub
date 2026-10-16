@@ -18,7 +18,7 @@
             overflow-x: hidden;
             padding-bottom: 60px;
         }
-        /* Firewall Proof Splash Screen (Disappears automatically after 1 second) */
+        /* FIXED SPLASH: Automatically vanishes from your finger clicks after 1 second */
         #splash {
             position: fixed;
             top: 0;
@@ -35,12 +35,12 @@
             font-size: 64px;
             font-weight: bold;
             text-shadow: 0 0 20px rgba(255, 34, 34, 0.6);
-            pointer-events: none;
+            pointer-events: none; /* Allows your finger to tap straight through it */
             animation: fadeOut 0.4s ease forwards;
             animation-delay: 1s;
         }
         @keyframes fadeOut {
-            to { opacity: 0; visibility: hidden; }
+            to { opacity: 0; visibility: hidden; display: none; }
         }
         /* Top Navigation Header Bar */
         header {
@@ -181,7 +181,7 @@
 </head>
 <body>
 
-    <!-- 1. The Splash Intro Screen (Now purely CSS animated so it cannot lock up) -->
+    <!-- 1. The Splash Intro Screen -->
     <div id="splash">graysons hub</div>
 
     <!-- 2. Main Site UI Header -->
